@@ -40,11 +40,35 @@ public class DataUtility {
         }
     }
     public static ArrayList<Customer> getTallest(ArrayList<Customer> customers) throws SQLException {
-        ArrayList<Customer> tallest = getCustomers();
+        ArrayList<Customer> tallest = new ArrayList<>();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(connString, user, password);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE centimeters >=190 LIMIT 8");
+            while (resultSet.next()) {
+                String[] phoneNumber = resultSet.getString("telephonenumber").split("- ");
+                tallest.add(new Customer
+                        (resultSet.getInt("number"),
+                                resultSet.getString("firstName"),
+                                resultSet.getString("lastName"),
+                                resultSet.getString("cctype"),
+                                resultSet.getString("bloodtype"),
+                                phoneNumber[0].trim(), //Need the others but it's giving me an error.
+                                resultSet.getDouble("kilograms"),
+                                resultSet.getDouble("centimeters")
+                        ));
+            }
 
-        Collections.sort(tallest, (customer1, customer2) -> {
-            return Double.compare(customer1.setHeightInCM(), customer2.getHeightInCM());
-            )
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(conn != null) conn.close();
+            if(statement != null) statement.close();
+            if (resultSet != null) resultSet.close();
+            return tallest;
         }
     }
 }
