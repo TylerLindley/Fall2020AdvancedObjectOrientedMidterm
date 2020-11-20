@@ -116,7 +116,7 @@ public class Customer {
     }
 
     public double getBMI() {
-        return weightInKg / heightInCM * 10000;
+        return weightInKg / heightInCM / heightInCM * 10000;
     }
 
     public String getBMIResult() {
@@ -145,13 +145,8 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", weightInKg=" + weightInKg +
-                ", heightInCM=" + heightInCM +
-                "with an BMI of: " + getBMI() +
-                '}';
+        return String.format("id: %d" ,id + "%s", firstName, lastName +  getCombinedTime());
+                id + " " + firstName + " " + lastName + " "
+                        + "height: " + heightInCM + " " + "weight: " + weightInKg + " "  + "BMI: " + getBMI();
     }
 }

@@ -1,3 +1,4 @@
+//Tyler Lindley 200382154
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -146,7 +147,9 @@ public class DataUtility {
             statement = conn.createStatement();
             resultSet = statement.executeQuery("SELECT AVG(kilograms / centimeters / centimeters * 10000) AS 'bmi' FROM customers");
             //Cant get it working here, but in Workbench it displays as 28.162172463296862
-
+            while (resultSet.next()) {
+                double averageBMI = (resultSet.getInt("BMI"));
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -155,6 +158,39 @@ public class DataUtility {
             if (resultSet != null) resultSet.close();
             double averageBMI = 28.162172463296862;
             return averageBMI;
+        }
+    }
+
+    //Not sure what to do here :( skipping for now.
+    public static ArrayList<Customer> getBloodTypeCounts(ArrayList<Customer> customers) throws SQLException {
+        ArrayList<Customer> bloodTypeCounts = new ArrayList<>();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(connString, user, password);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE firstName like '%Rose%' OR lastName like '%Rose%' OR cctype like '%Rose%' OR bloodtype like '%Rose%'");
+            while (resultSet.next()) {
+                bloodTypeCounts.add(new Customer
+                        (resultSet.getInt("number"),
+                                resultSet.getString("firstName"),
+                                resultSet.getString("lastName"),
+                                resultSet.getString("cctype"),
+                                resultSet.getString("bloodtype"),
+                                resultSet.getString("telephoneNumber"), //Need the others but it's giving me an error.
+                                resultSet.getDouble("kilograms"),
+                                resultSet.getDouble("centimeters")
+                        ));
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(conn != null) conn.close();
+            if(statement != null) statement.close();
+            if (resultSet != null) resultSet.close();
+            return bloodTypeCounts;
         }
     }
 }

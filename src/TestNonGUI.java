@@ -28,7 +28,7 @@ public class TestNonGUI {
         System.out.println("\nDataUtility class - challenge 5");
         double avgBMI = DataUtility.getAverageBMI(customers);
         System.out.printf("This should return 28.2. Returned: %.1f: %n",avgBMI);
-//
+//          (Skipping for now, not sure what to do here)
 //        System.out.println("\nDataUtility class - challenge 6");
 //        TreeMap<String, Integer> bloodTypeCounts = DataUtility.getBloodTypeCounts(customers);
 //        for (String bloodType: bloodTypeCounts.keySet())
