@@ -1,0 +1,8 @@
+.root {
+    -fx-background-color: BADA55;
+}
+
+#rowsReturnedLabel {
+    -fx-font-weight: bolder;
+    -fx-font-size: 25px;
+}

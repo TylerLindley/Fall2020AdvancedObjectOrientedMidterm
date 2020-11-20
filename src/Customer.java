@@ -145,7 +145,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return String.format("id: %d" ,id + "%s", firstName, lastName +  getCombinedTime());
+        return
                 id + " " + firstName + " " + lastName + " "
                         + "height: " + heightInCM + " " + "weight: " + weightInKg + " "  + "BMI: " + getBMI();
     }
