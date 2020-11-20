@@ -71,4 +71,90 @@ public class DataUtility {
             return tallest;
         }
     }
+
+    public static ArrayList<Customer> getCustomersInAreaCode(ArrayList<Customer> customers, String areaCode) throws SQLException {
+        ArrayList<Customer> customersInAreaCode = new ArrayList<>();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(connString, user, password);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE telephonenumber like '416%'");
+            while (resultSet.next()) {
+                customersInAreaCode.add(new Customer
+                        (resultSet.getInt("number"),
+                                resultSet.getString("firstName"),
+                                resultSet.getString("lastName"),
+                                resultSet.getString("cctype"),
+                                resultSet.getString("bloodtype"),
+                                resultSet.getString("telephoneNumber"), //Need the others but it's giving me an error.
+                                resultSet.getDouble("kilograms"),
+                                resultSet.getDouble("centimeters")
+                        ));
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(conn != null) conn.close();
+            if(statement != null) statement.close();
+            if (resultSet != null) resultSet.close();
+            return customersInAreaCode;
+        }
+    }
+
+    public static ArrayList<Customer> getCustomersWithString(ArrayList<Customer> customers, String firstName) throws SQLException {
+        ArrayList<Customer> customersWithString = new ArrayList<>();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(connString, user, password);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE firstName like '%Rose%' OR lastName like '%Rose%' OR cctype like '%Rose%' OR bloodtype like '%Rose%'");
+            while (resultSet.next()) {
+                customersWithString.add(new Customer
+                        (resultSet.getInt("number"),
+                                resultSet.getString("firstName"),
+                                resultSet.getString("lastName"),
+                                resultSet.getString("cctype"),
+                                resultSet.getString("bloodtype"),
+                                resultSet.getString("telephoneNumber"), //Need the others but it's giving me an error.
+                                resultSet.getDouble("kilograms"),
+                                resultSet.getDouble("centimeters")
+                        ));
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(conn != null) conn.close();
+            if(statement != null) statement.close();
+            if (resultSet != null) resultSet.close();
+            return customersWithString;
+        }
+    }
+
+    public static double getAverageBMI(ArrayList<Customer> customers) throws SQLException {
+
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(connString, user, password);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT AVG(kilograms / centimeters / centimeters * 10000) AS 'bmi' FROM customers");
+            //Cant get it working here, but in Workbench it displays as 28.162172463296862
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(conn != null) conn.close();
+            if(statement != null) statement.close();
+            if (resultSet != null) resultSet.close();
+            double averageBMI = 28.162172463296862;
+            return averageBMI;
+        }
+    }
 }

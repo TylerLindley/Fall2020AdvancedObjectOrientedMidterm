@@ -16,18 +16,18 @@ public class TestNonGUI {
                "ID's 66, 160, 222, 242, 445, 516, 549, 698");
         tallest.stream().forEach(System.out::println);
 //
-//        System.out.println("\nDataUtility class - challenge 3");
-//        ArrayList<Customer> areaCodeList = DataUtility.getCustomersInAreaCode(customers, "416");
-//        System.out.println("This should display 125 records: "+areaCodeList.size());
+        System.out.println("\nDataUtility class - challenge 3");
+        ArrayList<Customer> areaCodeList = DataUtility.getCustomersInAreaCode(customers, "416");
+        System.out.println("This should display 125 records: "+areaCodeList.size());
 //
-//        System.out.println("\nDataUtility class - challenge 4");
-//        ArrayList<Customer> searchListResults = DataUtility.getCustomersWithString(customers, "Rose");
-//        System.out.println("This should display 3 records: "+searchListResults.size());
-//        searchListResults.stream().forEach(System.out::println);
+        System.out.println("\nDataUtility class - challenge 4");
+        ArrayList<Customer> searchListResults = DataUtility.getCustomersWithString(customers, "Rose");
+        System.out.println("This should display 3 records: "+searchListResults.size());
+        searchListResults.stream().forEach(System.out::println);
 //
-//        System.out.println("\nDataUtility class - challenge 5");
-//        double avgBMI = DataUtility.getAverageBMI(customers);
-//        System.out.printf("This should return 28.2. Returned: %.1f: %n",avgBMI);
+        System.out.println("\nDataUtility class - challenge 5");
+        double avgBMI = DataUtility.getAverageBMI(customers);
+        System.out.printf("This should return 28.2. Returned: %.1f: %n",avgBMI);
 //
 //        System.out.println("\nDataUtility class - challenge 6");
 //        TreeMap<String, Integer> bloodTypeCounts = DataUtility.getBloodTypeCounts(customers);
