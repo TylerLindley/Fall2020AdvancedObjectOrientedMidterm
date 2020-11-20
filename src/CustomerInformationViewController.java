@@ -29,14 +29,12 @@ public class CustomerInformationViewController implements Initializable {
 
     @FXML
     void getCustomers(ActionEvent event) throws SQLException {
-        listView.getItems().clear();
-        listView.getItems().addAll(DataUtility.getCustomers());
+        //listView.getItems().clear();
+        //listView.getItems().addAll(DataUtility.getCustomers());
     }
 
     @FXML
-    void getCustomersInAreaCode(ActionEvent event, String areaCode) throws SQLException {
-        listView.getItems().clear();
-        listView.getItems().addAll(DataUtility.getCustomersInAreaCode());
+    void getCustomersInAreaCode(ActionEvent event, String areaCode){
     }
 
     @FXML
@@ -49,9 +47,6 @@ public class CustomerInformationViewController implements Initializable {
         ArrayList<Customer> tallest = new ArrayList<>();
 
         listView.getItems().clear();
-        for(Customers customer: DataUtility.getCustomers()) {
-
-        }
         listView.getItems().addAll(tallest);
     }
 }

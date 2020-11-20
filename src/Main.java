@@ -9,14 +9,6 @@ import java.util.ArrayList;
 
 public class Main extends Application {
     public static void main(String[] args) {
-/*
-        try {
-            ArrayList<Athlete> athletes = DBUtility.getAllAthletes();
-            for(Athlete athlete : athletes)
-                System.out.println(athlete);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } */
         launch(args);
     }
     @Override

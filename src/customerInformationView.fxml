@@ -5,13 +5,11 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerInformationViewController">
    <children>
       <ListView fx:id="listView" layoutX="14.0" layoutY="14.0" prefHeight="192.0" prefWidth="418.0" />
       <Label fx:id="rowsReturnedLabel" layoutX="115.0" layoutY="237.0" text="Rows Returned" />
       <Button layoutX="467.0" layoutY="28.0" mnemonicParsing="false" onAction="#getCustomersWithString" text="Filter by Search Text" />
-      <Button layoutX="469.0" layoutY="71.0" mnemonicParsing="false" onAction="#getCustomersInAreaCode" text="Filter by Area Code" />
       <Button layoutX="469.0" layoutY="119.0" mnemonicParsing="false" onAction="#getCustomers" text="Load All Customers" />
       <Button layoutX="463.0" layoutY="160.0" mnemonicParsing="false" onAction="#getTallest" text="Get Tallest Customers" />
    </children>
