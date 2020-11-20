@@ -73,7 +73,7 @@ public class Customer {
 
     public void setBloodType(String bloodType) {
         //It's a long validation, but it works haha.
-        if(bloodType.equalsIgnoreCase("B+") || bloodType.equalsIgnoreCase("O+") || bloodType.equalsIgnoreCase("AB+") || bloodType.equalsIgnoreCase("O-") || bloodType.equalsIgnoreCase("A+") || bloodType.equalsIgnoreCase("B-") || bloodType.equalsIgnoreCase("A-") || bloodType.equalsIgnoreCase("AB")) {
+        if(bloodType.equalsIgnoreCase("B+") || bloodType.equalsIgnoreCase("O+") || bloodType.equalsIgnoreCase("AB+") || bloodType.equalsIgnoreCase("O-") || bloodType.equalsIgnoreCase("A+") || bloodType.equalsIgnoreCase("B-") || bloodType.equalsIgnoreCase("A-") || bloodType.equalsIgnoreCase("AB-")) {
             this.bloodType = bloodType;
         }
         else {

@@ -1,10 +1,11 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DataUtility {
     private static String user = "student";
     private static String password = "student";
-    private static String connString = "jdbc:mysql://localHost:3306/F20COMP1011Test1";
+    private static String connString = "jdbc:mysql://localHost:3306/F20COMP1011Test2";
 
     public static ArrayList<Customer> getCustomers() throws SQLException {
         ArrayList<Customer> customers = new ArrayList<>();
@@ -35,7 +36,15 @@ public class DataUtility {
             if(conn != null) conn.close();
             if(statement != null) statement.close();
             if (resultSet != null) resultSet.close();
-            return athletes;
+            return customers;
+        }
+    }
+    public static ArrayList<Customer> getTallest(ArrayList<Customer> customers) throws SQLException {
+        ArrayList<Customer> tallest = getCustomers();
+
+        Collections.sort(tallest, (customer1, customer2) -> {
+            return Double.compare(customer1.setHeightInCM(), customer2.getHeightInCM());
+            )
         }
     }
 }

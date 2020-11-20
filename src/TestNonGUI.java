@@ -6,15 +6,15 @@ import java.util.TreeMap;
 public class TestNonGUI {
     public static void main(String[] args) throws SQLException {
 
-//        System.out.println("DataUtility class - challenge 1");
-//        ArrayList<Customer> customers = DataUtility.getCustomers();
-//        System.out.println("this should equal 1000: " + customers.size());
+        System.out.println("DataUtility class - challenge 1");
+        ArrayList<Customer> customers = DataUtility.getCustomers();
+        System.out.println("this should equal 1000: " + customers.size());
 //
-//        System.out.println("\nDataUtility class - challenge 2");
-//        ArrayList<Customer> tallest = DataUtility.getTallest(customers);
-//        System.out.println("This should display the 8 tallest customers. " +
-//                "ID's 66, 160, 222, 242, 445, 516, 549, 698");
-//        tallest.stream().forEach(System.out::println);
+        System.out.println("\nDataUtility class - challenge 2");
+        ArrayList<Customer> tallest = DataUtility.getTallest(customers);
+        System.out.println("This should display the 8 tallest customers. " +
+               "ID's 66, 160, 222, 242, 445, 516, 549, 698");
+        tallest.stream().forEach(System.out::println);
 //
 //        System.out.println("\nDataUtility class - challenge 3");
 //        ArrayList<Customer> areaCodeList = DataUtility.getCustomersInAreaCode(customers, "416");
